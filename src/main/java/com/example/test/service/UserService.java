@@ -18,6 +18,9 @@ public interface UserService {
     //删除用户
     int deleteUser(String id);
 
+    //重置数据库主键自增
+    void resetKey();
+
     //修改用户
     int updateUser(User user);
 

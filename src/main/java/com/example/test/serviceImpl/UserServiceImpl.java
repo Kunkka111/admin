@@ -46,4 +46,9 @@ public class UserServiceImpl implements UserService {
     public List<User> findAllUser() {
         return userMapper.getAllUser();
     }
+
+    @Override
+    public void resetKey(){
+        userMapper.resetKey();
+    }
 }

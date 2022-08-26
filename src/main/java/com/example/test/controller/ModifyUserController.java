@@ -53,6 +53,7 @@ public class ModifyUserController {
         List<User> users = userService.findAllUser();
         modelMap.addAttribute("users",users);
         if(flag == 1){
+            userService.resetKey();
             return "users";
         }else {
             return "error";

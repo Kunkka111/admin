@@ -29,6 +29,9 @@
         WHERE userId = #{id};
     </delete>
 
+    <update id="resetKey">
+        ALTER TABLE user AUTO_INCREMENT = 1;
+    </update>
     <!--根据ID修改用户信息，返回数据库操作影响行数，为0则是失败-->
     <update id="updateUser" parameterType="com.example.test.pojo.User">
         UPDATE user
