@@ -38,8 +38,8 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public int updateUser(User user) {
-        int mFlag = userMapper.updateUser(user);
-        return mFlag;
+        int uFlag = userMapper.updateUser(user);
+        return uFlag;
     }
 
     @Override
