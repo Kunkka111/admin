@@ -1,6 +1,6 @@
 package com.example.test.pojo;
 
-public class Admin {
+public class User {
     private int userId;
     private int roleId;
     private String userName;

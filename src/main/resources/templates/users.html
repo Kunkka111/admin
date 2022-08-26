@@ -34,7 +34,7 @@
                 <td th:text="${user.account}"></td>
                 <td>
                     <a th:href = "@{/user+{userId}(userId=${user.userId})}">修改</a>
-                    <a th:href = "@{/deleteUser+{userId}(userId=${user.userId})}" id = "delete">删除</a>
+                    <a th:href = "@{/delUser+{userId}(userId=${user.userId})}" id = "delete">删除</a>
                 </td>
             </tr>
             </tbody>
@@ -43,22 +43,27 @@
     <div id = "addUser">
         <form name="addUser">
             <div class="form-group">
-                <label for="userName">name:</label>
+                <label for="userName">UserName:</label>
                 <input type="text" class="form-control" name="userName" id="userName">
             </div>
             <div class="form-group">
-                <label for="account">Password:</label>
+                <label for="account">Account:</label>
                 <input type="text" class="form-control" name="account" id = "account">
             </div>
             <div class="form-group">
                 <label for="password">Password:</label>
                 <input type="password" class="form-control" name="password" id = "password">
             </div>
+            <div class="form-check">
+                <label for="role">Role:</label>
+                <select class="form-control" name="role" id = "role">
+                    <option>admin</option>
+                    <option>normal</option>
+                </select>
+            </div>
         </form>
         <button id = "add">AddUser</button>
-
     </div>
-
     <script >
         //字符串判空方法
         function isBlank(str){
@@ -70,15 +75,23 @@
         }
         //添加用户js响应事件
         $("#add").click(function(){
-            alert("hello");
             var userName = document.forms["addUser"]["userName"].value;
             var account = document.forms["addUser"]["account"].value;
             var password = document.forms["addUser"]["password"].value;
+            var role = document.forms["addUser"]["role"].value;
+
+
             //判断是否有未填项
-            if(isBlank(userName) || isBlank(account) || isBlank(password)){
+            if(isBlank(userName) || isBlank(account) || isBlank(password)||isBlank(role)){
                 window.confirm("请完善信息");
             }else {
+                if (role == "user"){
+                    var roleId = 1;
+                }else {
+                    var roleId = 2;
+                }
                 var param = {
+                    "roleId": roleId,
                     "userName": userName,
                     "account": account,
                     "password": password
@@ -96,6 +109,7 @@
             }
 
         });
+
     </script>
 </body>
 </html>

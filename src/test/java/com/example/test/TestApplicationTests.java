@@ -1,6 +1,6 @@
 package com.example.test;
 
-import com.example.test.pojo.Admin;
+import com.example.test.pojo.User;
 import com.example.test.service.UserService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -17,9 +17,9 @@ public class TestApplicationTests {
 
     @Test
     public void contextLoads() {
-        Admin admin = userService.loginIn("a","a");
+        User user = userService.loginIn("a","a");
         System.out.println("该用户ID为：");
-//        System.out.println(admin.getuserId());
+//        System.out.println(user.getuserId());
     }
 
 }
