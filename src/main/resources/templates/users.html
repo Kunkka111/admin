@@ -64,6 +64,7 @@
         </form>
         <button id = "add">AddUser</button>
     </div>
+    <a th:href = "@{/login}">退出</a>
     <script >
         //字符串判空方法
         function isBlank(str){
@@ -73,15 +74,12 @@
                 return false;
             }
         }
-        //添加用户js响应事件
+
         $("#add").click(function(){
             var userName = document.forms["addUser"]["userName"].value;
             var account = document.forms["addUser"]["account"].value;
             var password = document.forms["addUser"]["password"].value;
             var role = document.forms["addUser"]["role"].value;
-
-
-            //判断是否有未填项
             if(isBlank(userName) || isBlank(account) || isBlank(password)||isBlank(role)){
                 window.confirm("请完善信息");
             }else {
@@ -97,12 +95,12 @@
                     "password": password
                 };
                 $.ajax({
-                    url:"/addUser", //请求url
-                    data: param,    //请求参数
-                    async: true,    //是否异步
+                    url:"/addUser",
+                    data: param,
+                    async: true,
                     success: function f(result) {
-                        window.confirm(result.msg); //新增用户成功提示框
-                        location.href = "users";    //重新加载界面，同步数据库信息
+                        window.confirm(result.msg);
+                        location.href = "users";
                     }
                 });
 

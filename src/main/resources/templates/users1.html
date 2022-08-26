@@ -23,7 +23,6 @@
             <th>用户角色Id</th>
             <th>用户昵称</th>
             <th>用户账号</th>
-            <th>操作</th>
         </tr>
         </thead>
         <tbody>
@@ -32,13 +31,11 @@
             <td th:text="${user.roleId}"></td>
             <td th:text="${user.userName}"></td>
             <td th:text="${user.account}"></td>
-            <td>
-                <a th:href = "@{/user+{userId}(userId=${user.userId})}">修改</a>
-                <a th:href = "@{/deleteUser+{userId}(userId=${user.userId})}" id = "delete">删除</a>
-            </td>
+
         </tr>
         </tbody>
     </table>
 </div>
+<a th:href = "@{/login}">退出</a>
 </body>
 </html>

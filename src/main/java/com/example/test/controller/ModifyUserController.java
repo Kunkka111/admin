@@ -60,11 +60,6 @@ public class ModifyUserController {
         }
     }
 
-    /**
-     * 根据用户ID查询用户信息
-     * @param id
-     * @return
-     */
     @RequestMapping("/user+{userId}")
     public String queryUser(@PathVariable("userId") String id,ModelMap modelMap){
         User user = userService.queryUserById(id);
@@ -72,12 +67,6 @@ public class ModifyUserController {
         return "userInfo";
     }
 
-    /**
-     * 根据用户ID修改用户信息
-     * remark：这里未做用户名是否重复校验
-     * @param admin
-     * @return
-     */
     @RequestMapping("/updateUser")
     @ResponseBody
     public Map updateUser(User admin){

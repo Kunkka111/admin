@@ -91,12 +91,12 @@
                     "password": password
                 };
                 $.ajax({
-                    url:"/updateUser", //请求url
-                    data: param,    //请求参数
-                    async: true,    //是否异步
+                    url:"/updateUser",
+                    data: param,
+                    async: true,
                     success: function f(result) {
-                        window.confirm(result.msg); //修改用户信息成功提示框
-                        location.href = "users";    //重新加载界面，同步数据库信息
+                        window.confirm(result.msg);
+                        location.href = "users";
                     }
                 });
 
